@@ -1,1 +1,1 @@
-# jurnaltrading1
+# goclinic
