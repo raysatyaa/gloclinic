@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Gloglowing Aesthetic Clinic - Tips, Informasi, dan Artikel tentang Kecantikan & Perawatan Kulit">
+    <title>Blog - Gloglowing Aesthetic Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --pink-primary: #E91E63;
+            --pink-rose: #F8BBD0;
+            --pink-soft: #FCE4EC;
+            --pink-light: #FFF0F5;
+            --pink-dark: #C2185B;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+            --shadow-soft: rgba(233, 30, 99, 0.1);
+            --shadow-medium: rgba(233, 30, 99, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-soft) 100%);
+            padding: 12px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--pink-primary);
+            box-shadow: 0 2px 8px var(--shadow-soft);
+        }
+
+        .promo-banner p {
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .promo-banner .highlight {
+            color: var(--pink-primary);
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 48px;
+            z-index: 999;
+            box-shadow: 0 2px 12px var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo .accent {
+            color: var(--pink-primary);
+        }
+
+        .nav-menu {
+            display: none;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            background: var(--white);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            border: 1px solid rgba(233, 30, 99, 0.1);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow-medium);
+            border-color: var(--pink-primary);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: var(--pink-light);
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-date {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .blog-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .blog-tag {
+            padding: 5px 12px;
+            background: var(--pink-soft);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--pink-primary);
+            font-weight: 500;
+        }
+
+        .read-more {
+            color: var(--pink-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        .footer-content a {
+            color: var(--pink-primary);
+            text-decoration: none;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            font-size: 32px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @media (max-width: 767px) {
+            .section {
+                padding: 60px 20px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-btn {
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <p>🎉 <span class="highlight">Promo Spesial Bulan Ini</span> - Konsultasi Gratis + Diskon 20% untuk Treatment Pertama!</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Glo<span class="accent">Glowing</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Beranda</a></li>
+                <li><a href="index.html#treatments">Treatment</a></li>
+                <li><a href="products.html">Katalog</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#testimonials">Testimoni</a></li>
+                <li><a href="index.html#locations">Lokasi</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <section class="section blog-section">
+        <h2 class="section-title">Blog & Artikel</h2>
+        <p class="section-subtitle">Tips, informasi, dan artikel terbaru tentang kecantikan dan perawatan kulit</p>
+        
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <article class="blog-card">
+                <img src="images/blog/facial-rutin.jpg" alt="Pentingnya Facial Rutin" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">15 Desember 2024</p>
+                    <h3>Pentingnya Facial Rutin untuk Kesehatan Kulit Wajah</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Facial</span>
+                        <span class="blog-tag">Perawatan Kulit</span>
+                    </div>
+                    <p class="blog-excerpt">Facial rutin bukan hanya tentang kecantikan, tapi juga kesehatan kulit. Ketahui manfaat facial rutin, seberapa sering sebaiknya dilakukan, dan tips memilih treatment facial yang tepat untuk jenis kulit Anda...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card">
+                <img src="images/blog/laser-treatment.jpg" alt="Laser Treatment" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">12 Desember 2024</p>
+                    <h3>Memahami Laser Treatment: Solusi untuk Berbagai Masalah Kulit</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Laser</span>
+                        <span class="blog-tag">Teknologi</span>
+                    </div>
+                    <p class="blog-excerpt">Laser treatment telah menjadi solusi populer untuk berbagai masalah kulit. Pelajari jenis-jenis laser treatment, manfaatnya, dan siapa saja yang cocok untuk melakukan treatment ini...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card">
+                <img src="images/blog/skincare-routine.jpg" alt="Skincare Routine" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">10 Desember 2024</p>
+                    <h3>Skincare Routine yang Tepat untuk Kulit Glowing</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Skincare</span>
+                        <span class="blog-tag">Tips</span>
+                    </div>
+                    <p class="blog-excerpt">Rutinitas skincare yang tepat adalah kunci kulit sehat dan glowing. Temukan langkah-langkah skincare routine yang benar, mulai dari pembersihan hingga proteksi, sesuai dengan jenis kulit Anda...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-card">
+                <img src="images/blog/anti-aging.jpg" alt="Anti Aging" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">8 Desember 2024</p>
+                    <h3>Tips Anti-Aging: Mencegah Penuaan Dini Sejak Dini</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Anti-Aging</span>
+                        <span class="blog-tag">Perawatan</span>
+                    </div>
+                    <p class="blog-excerpt">Penuaan dini bisa dicegah dengan perawatan yang tepat. Pelajari faktor-faktor penyebab penuaan dini, treatment anti-aging yang efektif, dan gaya hidup sehat untuk menjaga kulit tetap awet muda...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-card">
+                <img src="images/blog/acne-treatment.jpg" alt="Acne Treatment" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">5 Desember 2024</p>
+                    <h3>Mengatasi Jerawat dengan Treatment Medis yang Tepat</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Jerawat</span>
+                        <span class="blog-tag">Treatment</span>
+                    </div>
+                    <p class="blog-excerpt">Jerawat yang membandel memerlukan penanganan medis yang tepat. Ketahui berbagai treatment untuk mengatasi jerawat, mulai dari chemical peeling, laser, hingga injection acne yang aman dan efektif...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article class="blog-card">
+                <img src="images/blog/whitening.jpg" alt="Whitening Treatment" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">3 Desember 2024</p>
+                    <h3>Whitening Treatment: Mencerahkan Kulit dengan Aman</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Whitening</span>
+                        <span class="blog-tag">Perawatan</span>
+                    </div>
+                    <p class="blog-excerpt">Kulit cerah dan glowing adalah impian banyak orang. Pelajari berbagai treatment whitening yang aman, efektif, dan sesuai dengan kondisi kulit Anda. Dari infus vitamin C hingga laser whitening...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 7 -->
+            <article class="blog-card">
+                <img src="images/blog/filler-botoks.jpg" alt="Filler & Botox" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">1 Desember 2024</p>
+                    <h3>Filler & Botox: Perbedaan dan Manfaat untuk Kecantikan</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Filler</span>
+                        <span class="blog-tag">Botox</span>
+                    </div>
+                    <p class="blog-excerpt">Filler dan Botox adalah dua treatment populer untuk kecantikan. Namun, keduanya memiliki fungsi dan manfaat yang berbeda. Pahami perbedaannya dan pilih treatment yang tepat untuk kebutuhan Anda...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 8 -->
+            <article class="blog-card">
+                <img src="images/blog/aftercare.jpg" alt="Aftercare Treatment" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">28 November 2024</p>
+                    <h3>Aftercare Treatment: Perawatan Setelah Treatment Aesthetic</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Tips</span>
+                        <span class="blog-tag">Aftercare</span>
+                    </div>
+                    <p class="blog-excerpt">Perawatan setelah treatment aesthetic sangat penting untuk memaksimalkan hasil. Ketahui do's and don'ts setelah berbagai jenis treatment, mulai dari facial, laser, hingga injection untuk hasil yang optimal...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 9 -->
+            <article class="blog-card">
+                <img src="images/blog/slimming.jpg" alt="Slimming Treatment" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">25 November 2024</p>
+                    <h3>Slimming & Body Shaping: Treatment untuk Body Goals</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Slimming</span>
+                        <span class="blog-tag">Body Shaping</span>
+                    </div>
+                    <p class="blog-excerpt">Mendapatkan body goals tidak selalu harus dengan diet ketat. Treatment slimming dan body shaping dengan teknologi modern seperti RF, cavitation, dan HIFU bisa membantu mewujudkan impian Anda dengan aman...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 10 -->
+            <article class="blog-card">
+                <img src="images/blog/choosing-clinic.jpg" alt="Memilih Klinik" class="blog-image">
+                <div class="blog-content">
+                    <p class="blog-date">22 November 2024</p>
+                    <h3>Tips Memilih Klinik Aesthetic yang Aman dan Terpercaya</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Tips</span>
+                        <span class="blog-tag">Informasi</span>
+                    </div>
+                    <p class="blog-excerpt">Memilih klinik aesthetic yang tepat sangat penting untuk keselamatan dan hasil yang maksimal. Pelajari kriteria klinik aesthetic yang baik, sertifikasi yang harus dimiliki, dan pertanyaan penting yang perlu ditanyakan...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Gloglowing Aesthetic Clinic. All rights reserved.</p>
+            <p>Klinik Kecantikan Premium di Indramayu, Haurgeulis, Cirebon & Tegal</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" onclick="window.open('https://wa.me/6281234567891', '_blank')">
+        <div class="whatsapp-btn">💬</div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', () => {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '100%';
+            navMenu.style.left = '0';
+            navMenu.style.right = '0';
+            navMenu.style.background = 'var(--white)';
+            navMenu.style.padding = '20px';
+            navMenu.style.boxShadow = '0 4px 12px var(--shadow-soft)';
+        });
+    </script>
+</body>
+</html>
+
